@@ -3,4 +3,5 @@ module.exports = {
     title: "My Gatsby Site",
   },
   plugins: [],
+  pathPrefix: "/portfolio",
 };
