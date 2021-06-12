@@ -4,6 +4,8 @@ import NavBar from '../components/NavBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import ReactDOM from 'react-dom';
+import YourSvg from '../images/drawing2.svg';
+//import Thumbnail from './styles';
 
 const themeLight = createMuiTheme({
   palette: {
@@ -27,6 +29,14 @@ const themeDark = createMuiTheme({
   },
 });
 
+const image_theme1 = {
+  width: '40%',
+  height: '40%',
+  float: 'right',
+};
+
+const intro_theme1 = {};
+
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
@@ -45,8 +55,20 @@ class IndexPage extends React.Component {
           <CssBaseline />
           <NavBar
             changeLight={this.changeLight}
+            light={this.state.light}
             theme={this.state.light ? themeLight : themeDark}
           />
+          <img src={YourSvg} alt="React Logo" style={image_theme1} />
+          <h1 style={{ marginLeft: '12%', fontSize: '3rem' }}>Hi There!</h1>
+          <h4
+            style={{
+              marginLeft: '12%',
+              fontSize: '2rem',
+              fontWeight: 'normal',
+            }}
+          >
+            This page is not fully developed
+          </h4>
         </MuiThemeProvider>
       </div>
     );

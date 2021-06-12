@@ -22,44 +22,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// export default function ButtonAppBar(light) {
-//   console.log(light);
-//   const classes = useStyles();
-
-//   return (
-//     <div>
-//       <AppBar
-//         position="static"
-//         style={{ background: 'transparent', boxShadow: 'none' }}
-//       >
-//         <Toolbar variant="regular">
-//           <Typography variant="h6" className={classes.title}>
-//             Test
-//           </Typography>
-//           <IconButton onClick={light}>
-//             <Brightness4Icon />
-//           </IconButton>
-//         </Toolbar>
-//       </AppBar>
-//     </div>
-//   );
-// }
+const text_style = {
+  fontSize: 'Large',
+  textTransform: 'none',
+};
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
+    let darkmode_button;
+    if (this.props.light == true) {
+      darkmode_button = <Brightness4Icon />;
+    } else {
+      darkmode_button = <Brightness7Icon />;
+    }
     return (
       <div>
         <AppBar
           position="static"
-          style={{ background: 'transparent', boxShadow: 'none' }}
+          style={{
+            background: 'transparent',
+            boxShadow: 'none',
+            height: '80%',
+            width: '80%',
+            marginRight: '10%',
+            marginLeft: '10%',
+            marginTop: '1%',
+          }}
         >
           <Toolbar variant="regular">
-            <Typography style={{ flexGrow: 1 }}>Test</Typography>
+            <Button style={text_style}>Home</Button>
+            <Typography style={{ flexGrow: 1 }}></Typography>
+            <Button style={text_style}>About</Button>
+            <Button style={text_style}>Projects</Button>
             <IconButton onClick={this.props.changeLight}>
-              <Brightness4Icon />
+              {darkmode_button}
             </IconButton>
           </Toolbar>
         </AppBar>
